@@ -1,0 +1,14 @@
+{
+  // Default workspace configuration for fincalc
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [],
+  "formatter": true,
+  "project": {
+    "name": "fincalc",
+    "language": "typescript"
+  },
+  "editor": {
+    "tabSize": 2,
+    "insertSpaces": true
+  }
+}
