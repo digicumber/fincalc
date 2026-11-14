@@ -1,7 +1,14 @@
 "use client";
 
 import { ArrowRightIcon } from "lucide-react";
-import { Area, CartesianGrid, ComposedChart, Line, XAxis, YAxis } from "recharts";
+import {
+  Area,
+  CartesianGrid,
+  ComposedChart,
+  Line,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -82,8 +89,8 @@ export function MortgagePreview() {
             <Progress
               key={row.label}
               value={row.pct}
-              className={`h-full shrink-0 ${row.bar}`}
-              style={{ width: `${row.pct}%` }}
+              className={`h-full w-auto ${row.bar}`}
+              style={{ flex: `${row.pct} 1 0%` }}
               aria-label={`${row.label}: ${row.pct}%`}
             />
           ))}
@@ -168,19 +175,24 @@ export function GrowthPreview() {
   return (
     <Card className="rounded-3xl bg-card shadow-xl shadow-ink/10 [--card-spacing:--spacing(6)]">
       <CardHeader>
-        <CardTitle className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-          Projected value
-        </CardTitle>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <CardTitle className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+            Projected value
+          </CardTitle>
+          <Badge variant="secondary" className="shrink-0">
+            Monthly compounding
+          </Badge>
+        </div>
         <p className="font-mono text-4xl font-semibold tracking-tight tabular-nums">
           $186,420
         </p>
-        <CardAction>
-          <Badge variant="secondary">Monthly compounding</Badge>
-        </CardAction>
       </CardHeader>
 
       <CardContent className="space-y-5">
-        <ChartContainer config={chartConfig} className="aspect-auto h-32 w-full">
+        <ChartContainer
+          config={chartConfig}
+          className="aspect-auto h-32 w-full"
+        >
           <ComposedChart
             data={growthData}
             margin={{ top: 6, right: 6, bottom: 0, left: 0 }}
@@ -221,7 +233,9 @@ export function GrowthPreview() {
         </ChartContainer>
 
         <ChartLegend
-          content={<ChartLegendContent className="justify-start gap-5 text-xs" />}
+          content={
+            <ChartLegendContent className="justify-start gap-5 text-xs" />
+          }
         />
 
         <div className="grid grid-cols-2 gap-3">

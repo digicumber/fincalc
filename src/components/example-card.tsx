@@ -84,15 +84,14 @@ export function ExampleCard() {
           <span className="flex size-11 items-center justify-center rounded-2xl bg-secondary text-primary">
             <TrendingUpIcon className="size-5" />
           </span>
-          <Badge variant="outline">Example</Badge>
+          <Badge variant="outline">Interactive demo</Badge>
         </div>
         <CardTitle className="mt-4 text-2xl font-semibold tracking-tight">
-          Example card
+          Compound growth, live
         </CardTitle>
         <CardDescription>
-          Move a slider and the projection updates immediately. The figures are
-          computed in the browser with monthly compounding and contributions at
-          the end of each month.
+          Drag a slider and the projection updates immediately. Contributions
+          are added monthly and compound at the end of each month.
         </CardDescription>
       </CardHeader>
 
